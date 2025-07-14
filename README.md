@@ -1,6 +1,6 @@
 # terraform-learning
 
-[Learning notes](https://github.com/srirymec/terraform-learning/blob/main/Terraform-learning-notes)
+[Terraform Cheat Sheet](https://github.com/srirymec/terraform-learning/blob/main/Terraform%20Cheat%20sheet.md)
 
 ## Heading 2
 
