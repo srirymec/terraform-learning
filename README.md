@@ -239,3 +239,12 @@ data "aws_ami" "example" {
 }
 
 ```
+
+## Resource vs Data Source
+
+|    Resource                       |    Data Source   |
+| --------------------------------- | ---------------- |
+| Keyword: resource                 | Keyword: data    |
+| Creates, updates, destroys infra  | Only reads infra |
+
+
