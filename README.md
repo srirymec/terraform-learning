@@ -45,6 +45,18 @@ Terraform lifecycle consists of – **init**, **plan**, **apply**, and **destroy
      } 
   }
   ```
+
+  ```
+  terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+   }
+  }
+  ```
+  
 - **Module:** Any set of Terraform configuration files in a folder is a module. 
 - **State:** Terraform records information about what infrastructure is created in a Terraform state file. The state file is created **only after the apply is run atleast once**.
 - **Resources:** Cloud Providers provides various services in their offerings, they are referenced as Resources in Terraform. 
