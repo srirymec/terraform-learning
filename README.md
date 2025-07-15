@@ -57,7 +57,79 @@ Terraform lifecycle consists of – **init**, **plan**, **apply**, and **destroy
   }
   ```
   
-- **Module:** Any set of Terraform configuration files in a folder is a module. 
+- **Module:** Any set of Terraform configuration files in a folder is a module.
+
+  **Module ec2**
+  > **main.tf**
+  > ```
+  > resource "aws_instance" "my_ec2" {
+  >  name = var.name
+  >  ------
+  >  ------
+  > }
+  > ```
+  > 
+  > **variables.tf**
+  > ```
+  > variable "name" {}
+  > variable "instance_type" {}
+  > variable "subnet_id" {}
+  > variable "ec2-sg" {}
+  > ```
+  >
+  > **outputs.tf**
+  > ```
+  > output "private_dns" {
+  >   value = aws_instance.my_ec2.private_dns
+  > }
+  > ```
+  >
+
+   **Client class**
+  > **ec2.tf**
+  > ```
+  > module ec2 {
+  >   source = "./../modules/ec2"
+  >   name = var.name
+  >   -------
+  >   -------
+  > }
+  > ```
+  > 
+  > **variables.tf**
+  > ```
+  > variable "name" {}
+  > variable "instance_type" {}
+  > variable "subnet_id" {}
+  > variable "ec2-sg" {}
+  > ```
+  >
+  > **providers.tf**
+  > ```
+  > terraform {
+  >   required_providers {
+  >     aws = {
+  >     source  = "hashicorp/aws"
+  >     version = "~> 4.0"
+  >    }
+  >   }
+  >
+  >   backend "s3" {
+  >     bucket         = "srini-test-123"
+  >     key            = "terraform.tfstate"
+  >     region         = "us-east-1"
+  >   }
+  > }
+  > ```
+  >
+  > **variables.tfvars**
+  > ```
+  > name = "srini-test-instance"
+  > instance_type = "t2.micro"
+  > ------
+  > ------
+  > ```
+  > 
 - **State:** Terraform records information about what infrastructure is created in a Terraform state file. The state file is created **only after the apply is run atleast once**.
 - **Resources:** Cloud Providers provides various services in their offerings, they are referenced as Resources in Terraform. 
 - **Data Source:** Data source performs a read-only operation. It allows data to be fetched or computed from resources/entities that are not defined or managed by Terraform or the current Terraform configuration.
