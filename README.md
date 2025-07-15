@@ -23,14 +23,6 @@ Terraform lifecycle consists of – **init**, **plan**, **apply**, and **destroy
 
 - **Variables:** Terraform has input and output variables, it is a key-value pair.<br/>
 
-  **variables.tf**
-  ```
-  variable "prefix" { 
-     default = ["Mr", "Mrs", "Sir"] 
-      type = list 
-  } 
-  ```
-
   **Supported variable types**
 
   > - string 
