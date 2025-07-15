@@ -1,4 +1,4 @@
-# terraform-learning
+# Terraform-learning
 
 ## Terraform Cheat Sheet
 
@@ -26,6 +26,5 @@ Read our blog on Terraform Variables
 - **Data Source:** Data source performs a read-only operation. It allows data to be fetched or computed from resources/entities that are not defined or managed by Terraform or the current Terraform configuration.
 - **Plan:** It is one of the stages in the Terraform lifecycle where it determines what needs to be created, updated, or destroyed to move from the real/current state of the infrastructure to the desired state.
 - **Apply:** It is one of the stages in the Terraform lifecycle where it applies the changes real/current state of the infrastructure in order to achieve the desired state.
-
 
 ### Heading 3
